@@ -185,3 +185,27 @@ def say_hello():
     print("Hello!")
 
 say_hello()  # When called, prints messages before and after the function
+
+
+# --- 6. Lambda Functions ---
+# Lambda functions are anonymous functions defined with the 'lambda' keyword.
+# They are used for creating small, throwaway functions without a full function definition.
+
+# Example 1: Simple addition
+add = lambda x, y: x + y
+print("Lambda add(3, 5):", add(3, 5))  # Output: 8
+
+# Example 2: Square a number
+square = lambda x: x * x
+print("Lambda square(4):", square(4))  # Output: 16
+
+# Example 3: Sorting a list of tuples by second element
+pairs = [(1, 'b'), (2, 'a'), (3, 'c')]
+sorted_pairs = sorted(pairs, key=lambda pair: pair[1])
+print("Sorted by second element using lambda:", sorted_pairs)
+# Output: [(2, 'a'), (1, 'b'), (3, 'c')]
+
+# Example 4: Filtering values less than 'o' using lambda in list comprehension
+alphs = ['u', 'i', 'o', 'e', 'f', 'z']
+filtered = list(filter(lambda x: x < 'o', alphs))
+print("Filtered letters < 'o':", filtered)  # Output: ['i', 'e', 'f']
