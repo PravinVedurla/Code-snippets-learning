@@ -205,7 +205,47 @@ sorted_pairs = sorted(pairs, key=lambda pair: pair[1])
 print("Sorted by second element using lambda:", sorted_pairs)
 # Output: [(2, 'a'), (1, 'b'), (3, 'c')]
 
+## Example :
+pairs = [(1, 'b', 'o'), (2, 'a', 'z'), (3, 'c', 'i')]
+[x for x in pairs if x[2]<'z']
+
 # Example 4: Filtering values less than 'o' using lambda in list comprehension
 alphs = ['u', 'i', 'o', 'e', 'f', 'z']
 filtered = list(filter(lambda x: x < 'o', alphs))
 print("Filtered letters < 'o':", filtered)  # Output: ['i', 'e', 'f']
+
+
+# --- 6b. Advanced Lambda Function Examples ---
+
+# Example 5: Using lambda with map to transform a list
+nums = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, nums))
+print("Squared with map + lambda:", squared)  # [1, 4, 9, 16]
+
+# Example 6: Using lambda with filter to get odd numbers
+odds = list(filter(lambda x: x % 2 != 0, nums))
+print("Filtered odd numbers:", odds)  # [1, 3]
+
+# Example 7: Using lambda with reduce to calculate factorial
+from functools import reduce
+factorial_5 = reduce(lambda x, y: x * y, range(1, 6))
+print("Factorial of 5 using reduce + lambda:", factorial_5)  # 120
+
+# Example 8: Sorting a list of dictionaries by a key using lambda
+people = [
+    {"name": "Alice", "age": 25},
+    {"name": "Bob", "age": 20},
+    {"name": "Charlie", "age": 30}
+]
+sorted_people = sorted(people, key=lambda person: person["age"])
+print("Sorted by age using lambda:", sorted_people)
+
+# Example 9: Nested lambda (a function that returns a lambda)
+def multiplier(n):
+    return lambda x: x * n
+
+double = multiplier(2)
+triple = multiplier(3)
+print("Double of 5:", double(5))  # 10
+print("Triple of 5:", triple(5))  # 15
+
